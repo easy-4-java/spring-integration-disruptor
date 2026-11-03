@@ -262,8 +262,8 @@
 
 	<repositories>
 		<repository>
-			<id>redhat-ga</id>
-			<url>https://maven.repository.redhat.com/ga/</url>
+			<id>liferay-gradle-plugins</id>
+			<url>https://repository-cdn.liferay.com/nexus/content/repositories/gradle-plugins/</url>
 		</repository>
 	</repositories>
 
