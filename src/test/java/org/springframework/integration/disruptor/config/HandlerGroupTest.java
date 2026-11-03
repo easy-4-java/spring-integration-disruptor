@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.junit.Test;
+import org.springframework.beans.factory.config.BeanDefinitionHolder;
 
 import com.lmax.disruptor.EventProcessor;
 
@@ -41,7 +42,7 @@ public class HandlerGroupTest {
 	@Test
 	public void shouldSetAndGetHandlerBeanDefinitions() {
 		final HandlerGroup group = new HandlerGroup();
-		group.setHandlerBeanDefinitions(Collections.emptyList());
+		group.setHandlerBeanDefinitions(Collections.<BeanDefinitionHolder>emptyList());
 		assertNotNull(group.getHandlerBeanDefinitions());
 		assertTrue(group.getHandlerBeanDefinitions().isEmpty());
 	}
@@ -49,7 +50,7 @@ public class HandlerGroupTest {
 	@Test
 	public void shouldSetAndGetEventProcessors() {
 		final HandlerGroup group = new HandlerGroup();
-		group.setEventProcessors(Collections.emptyList());
+		group.setEventProcessors(Collections.<EventProcessor>emptyList());
 		assertNotNull(group.getEventProcessors());
 		assertTrue(group.getEventProcessors().isEmpty());
 	}
@@ -78,7 +79,7 @@ public class HandlerGroupTest {
 	@Test
 	public void shouldReturnFalseForEmptyDependencies() {
 		final HandlerGroup group = new HandlerGroup();
-		group.setDependencies(Collections.emptyList());
+		group.setDependencies(Collections.<String>emptyList());
 		assertFalse(group.hasSingleDependency("ring-buffer"));
 	}
 
