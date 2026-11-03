@@ -260,6 +260,13 @@
 		<commons.lang.version>3.1</commons.lang.version>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>redhat-ga</id>
+			<url>https://maven.repository.redhat.com/ga/</url>
+		</repository>
+	</repositories>
+
 	<dependencyManagement>
 		<dependencies>
 			
@@ -305,11 +312,13 @@
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-core</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/edu.emory.mathcs.backport/com.springsource.edu.emory.mathcs.backport -->
 		<dependency>
-			<groupId>backport-util-concurrent</groupId>
-			<artifactId>backport-util-concurrent</artifactId>
-			<version>3.1</version>
+		    <groupId>edu.emory.mathcs.backport</groupId>
+		    <artifactId>com.springsource.edu.emory.mathcs.backport</artifactId>
+		    <version>3.1.0</version>
 		</dependency>
+
 		<dependency>
 			<groupId>com.googlecode.disruptor</groupId>
 			<artifactId>disruptor</artifactId>
