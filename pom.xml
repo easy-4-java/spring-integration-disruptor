@@ -305,13 +305,11 @@
 			<groupId>org.springframework.integration</groupId>
 			<artifactId>spring-integration-core</artifactId>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/edu.emory.mathcs.backport/com.springsource.edu.emory.mathcs.backport -->
 		<dependency>
-		    <groupId>edu.emory.mathcs.backport</groupId>
-		    <artifactId>com.springsource.edu.emory.mathcs.backport</artifactId>
-		    <version>3.1.0</version>
+			<groupId>backport-util-concurrent</groupId>
+			<artifactId>backport-util-concurrent</artifactId>
+			<version>3.1</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>com.googlecode.disruptor</groupId>
 			<artifactId>disruptor</artifactId>
