@@ -260,13 +260,6 @@
 		<commons.lang.version>3.1</commons.lang.version>
 	</properties>
 
-	<repositories>
-		<repository>
-			<id>liferay-gradle-plugins</id>
-			<url>https://repository-cdn.liferay.com/nexus/content/repositories/gradle-plugins/</url>
-		</repository>
-	</repositories>
-
 	<dependencyManagement>
 		<dependencies>
 			

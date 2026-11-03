@@ -16,4 +16,22 @@ jobs:
           distribution: temurin
           java-version: '8'
           cache: maven
+      - name: Install original OSGi backport
+        run: |
+          artifact="$RUNNER_TEMP/springsource-backport.jar"
+          curl -fsSL --retry 3 --retry-delay 2 \
+            -o "$artifact" \
+            https://repository-cdn.liferay.com/nexus/content/repositories/gradle-plugins/edu/emory/mathcs/backport/com.springsource.edu.emory.mathcs.backport/3.1.0/com.springsource.edu.emory.mathcs.backport-3.1.0.jar
+          printf '%s  %s\n' \
+            '69289da422ce1e893534ebb8d944f19d193492e3425cc476717b986d46509194' \
+            "$artifact" | sha256sum --check
+          unzip -p "$artifact" META-INF/MANIFEST.MF |
+            grep -F 'Bundle-SymbolicName: com.springsource.edu.emory.mathcs.backport'
+          mvn --batch-mode org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file \
+            -Dfile="$artifact" \
+            -DgroupId=edu.emory.mathcs.backport \
+            -DartifactId=com.springsource.edu.emory.mathcs.backport \
+            -Dversion=3.1.0 \
+            -Dpackaging=jar \
+            -DgeneratePom=true
       - run: mvn --batch-mode test
